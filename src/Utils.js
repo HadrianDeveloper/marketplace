@@ -11,10 +11,10 @@ const api = axios.create({
 export function getAllItems(cat) {
     return api.get('/items')
     .then(({data}) => {
-        if (category) {
+        if (cat !== '') {
             return data.filter((item) => item.category === cat)
         } else {
-            data;
+            return data;
         }
     })
 };

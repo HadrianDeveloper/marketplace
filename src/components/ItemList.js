@@ -1,5 +1,5 @@
-import axios from "axios";
-import { Link } from "react-router-dom";
+// import axios from "axios";
+// import { Link } from "react-router-dom";
 import { useEffect, useState } from "react"
 import { getAllItems } from "../Utils";
 import ItemCard from "./ItemCard";
@@ -18,7 +18,7 @@ export default function ItemList({category}) {
 
 
     
-    return (
+    return (~
         <ul id='item-list'>
            {items.map((item) => {
             return (
