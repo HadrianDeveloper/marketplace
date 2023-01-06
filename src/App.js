@@ -10,9 +10,9 @@ function App() {
     <div>
       <Header />
       <Nav />
-
+      
       <Routes>
-        <Route path="/items" element={<ItemList category="" />} />
+        <Route path="/" element={<ItemList category="" />} />
         <Route
           path="/electronics"
           element={<ItemList category="electronics" />}
