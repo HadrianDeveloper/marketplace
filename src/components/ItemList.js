@@ -10,7 +10,7 @@ export default function ItemList({ category }) {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    getAllItems(category).then((data) => setItems(data.items));
+    getAllItems(category).then((data) => setItems(data));
   }, [category]);
 
   return (

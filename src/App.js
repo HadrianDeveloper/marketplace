@@ -5,20 +5,19 @@ import ItemList from "./components/ItemList";
 import Nav from "./components/Nav";
 
 function App() {
-  console.log("Greetings bLESSING")
   return (
     <div>
       <Header />
       <Nav />
       
       <Routes>
-        <Route path="/" element={<ItemList category="" />} />
+        <Route path="/" element={<ItemList category="none" />} />
         <Route
           path="/electronics"
-          element={<ItemList category="electronics" />}
+          element={<ItemList category="Electronics" />}
         />
-        <Route path="/clothing" element={<ItemList category="clothing" />} />
-        <Route path="/household" element={<ItemList category="household" />} />
+        <Route path="/clothing" element={<ItemList category="Clothing" />} />
+        <Route path="/household" element={<ItemList category="Household" />} />
       </Routes>
     </div>
   );
