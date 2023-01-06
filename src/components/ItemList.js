@@ -1,25 +1,26 @@
-// import axios from "axios";
-// import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getAllItems } from "../Utils";
+// import { getAllItems, postItems } from "../Utils";
 import ItemCard from "./ItemCard";
+import { useContext } from "react";
+import LoggedinUserContext from "../contexts/loggedinUser";
+import '../css/ItemCard.module.css'
 
-//CONTROLLER
+export default function ItemList({ setInBasket, items}) {
+  const { user } = useContext(LoggedinUserContext)
 
-export default function ItemList({ category, setInBasket}) {
-  const [items, setItems] = useState([]);
+  // const [items, setItems] = useState([]);
 
-  useEffect(() => {
-    getAllItems(category).then((data) => setItems(data));
-  }, [category]);
+  // useEffect(() => {
+  //   getAllItems(category).then((data) => setItems(data));
+  // }, [category]);
 
   function handleClick(id) {
-    console.log(id)
     setInBasket((curr) => {
       const newAdd = items.filter((item) => item.item_id === id)
       return [...curr, ...newAdd]
     })
-  }
+    postItem(user, id)
+  };
 
   return (
     <ul id="item-list">
