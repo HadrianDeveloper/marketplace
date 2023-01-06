@@ -6,17 +6,25 @@ import ItemCard from "./ItemCard";
 
 //CONTROLLER
 
-export default function ItemList({ category }) {
+export default function ItemList({ category, setInBasket}) {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
     getAllItems(category).then((data) => setItems(data));
   }, [category]);
 
+  function handleClick(id) {
+    console.log(id)
+    setInBasket((curr) => {
+      const newAdd = items.filter((item) => item.item_id === id)
+      return [...curr, ...newAdd]
+    })
+  }
+
   return (
     <ul id="item-list">
       {items.map((item) => {
-        return <ItemCard key={item.item_id} {...item} />;
+        return <ItemCard key={item.item_id} {...item} handleClick={handleClick} onClick={handleClick}/>;
       })}
     </ul>
   );

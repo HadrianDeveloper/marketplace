@@ -4,12 +4,13 @@ export default function ItemCard(p) {
   const imgLink =
     "https://img.icons8.com/external-victoruler-flat-gradient-victoruler/512/external-add-to-basket-food-and-delivery-victoruler-flat-gradient-victoruler-1.png";
 
+    
   return (
     <li>
       <h3>{p.item_name}</h3>
       <span>
-        {p.price}
-        <img alt="add to cart" src={imgLink} />
+        £{p.price}
+        <img alt="add to cart" src={imgLink} onClick={() => p.handleClick(p.item_id)}/>
       </span>
       <p>{p.description}</p>
     </li>
